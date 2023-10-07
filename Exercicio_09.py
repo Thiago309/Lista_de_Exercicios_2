@@ -1,28 +1,39 @@
 nome = [""] * 5
 senha = [""] * 5
 posi = [""] * 5
-id = -1
+qtd = 5
+id = -1     # -1 para resolver o bug da posição do usuario inicial.
+flag = 0
+flag2 = 0
 resp = "n"
 login = ""
 password = ""
-for i in range(5):
+
+for i in range(qtd):
     nome[i] = input(f"\nInforme o nome do usuário ({i+1}): ")
     senha[i] = input(f"Informe o senha do usuário ({i+1}): ")
     id += 1
     posi[i] = id
 
-print("\nBem vindo a nossa plataforma\n !")
+print("\nBem vindo a nossa plataforma! \n")
+print(nome)
 
-while resp in "sS":
-    login = input("Por favor, informe o login do usuário: ")
-    while nome != login:
-        print("Senha incorreta, por favor tente novamente...")
+while flag != 1:
+    login = input("\nInforme o nome do usuario: ")
+    for t in range(qtd):
+        if (nome[t] == login):
+            print("Usuario encontrado!\n")
+            flag = 1
+            break
+    else:
+        print("\nUsuario não encontrado, tente novamente!")
 
-    print("\nLogin encontrado!\n")
-    password = input("Por favor, informe a senha do usuário: ")
-    while senha != password:
-        print("Senha incorreta, por favor tente novamente...")
-
-print("Login efetuado com sucesso !!!")
-
-resp = input("Deseja sair do nosso sistema ? (s/n):")
+while flag2 != 1:
+    password = input("\nInforme a senha do usuario: ")
+    for e in range(qtd):
+        if (senha[e] == password):
+            print("Login efetuado com sucesso !!!")
+            flag2 = 1
+            break
+    else:
+        print("\nSenha incorreta, tente novamente...")
