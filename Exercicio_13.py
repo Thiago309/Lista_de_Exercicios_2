@@ -1,5 +1,5 @@
 # Criar um vetor para armazenar os 30 números
-qtd = 3
+qtd = 30
 n = [0] * qtd
 # Ler os 30 números e armazenar no vetor
 for i in range(qtd):
